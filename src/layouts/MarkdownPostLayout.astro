@@ -1,0 +1,17 @@
+---
+import BaseLayout from './BaseLayout.astro';
+const { frontmatter } = Astro.props;
+---
+<BaseLayout pageTitle={frontmatter.title}>
+  <p>Written by {frontmatter.author} with love to Natalia</p>
+    <p>Published on: {frontmatter.pubDate.toDateString()}</p>
+    <p><em>{frontmatter.description}</em></p>
+
+    <img style={frontmatter.image.invert ? `filter: invert()` : ``} src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
+
+  <div class="markdown-body">
+    <slot />
+  </div>
+</BaseLayout>
+
+
